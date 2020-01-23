@@ -1,23 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Madlibs</title>
-</head>
-<body>
-  <h1>Madlibs</h1>
+{% extends 'base.html' %}
 
-  <form action="/story">
-    {% for prompt in story.prompts %}
-    <label for="{{prompt}}">{{prompt}}</label>
-      <input name="{{prompt}}">
-      <br>
-      <br>
-    {% endfor %}
-    <button>Submit</button>
-  </form>
-  
-</body>
-</html>
+{% block title %}Madlibs{% endblock %}
+
+{% block header %}Madlibs{% endblock %}
+
+{% block body %}
+
+<form action="/story">
+  {% for prompt in story.prompts %}
+  <label for="{{prompt}}">{{prompt}}</label>
+    <input name="{{prompt}}">
+    <br>
+    <br>
+  {% endfor %}
+  <button>Submit</button>
+</form>
+
+{% endblock %}

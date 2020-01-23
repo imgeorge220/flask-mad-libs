@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block header %}Choose your story!{% endblock %}
+
+{% block body %}
+<form action="/inputs">
+  <select name="story">
+    {% for story in story_list %}
+      <option value="{{story_list.index(story)}}">{{story.template}}</option>
+    {% endfor %}
+  </select>
+  <br><br>
+  <button>Submit</button>
+</form>
+{% endblock %}

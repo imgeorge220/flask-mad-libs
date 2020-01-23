@@ -38,8 +38,22 @@ class Story:
 # Here's a story to get you started
 
 
-story = Story(
+story_1 = Story(
     ["place", "noun", "verb", "adjective", "plural_noun"],
     """Once upon a time in a long-ago {place}, there lived a
        large {adjective} {noun}. It loved to {verb} {plural_noun}."""
 )
+
+story_2 = Story(
+    ["place", "noun", "verb", "adjective", "plural_noun"],
+    """Once upon a time in a short-ago {place}, there lived a
+       small {adjective} {noun}. It hated to {verb} {plural_noun}."""
+)
+
+story_3 = Story(
+    ["place", "noun", "verb", "adjective", "plural_noun"],
+    """Once upon a time in a boring {place}, there lived a
+       average-sized {adjective} {noun}. It was neutral to {verb} {plural_noun}."""
+)
+
+stories_list = [story_1, story_2, story_3]
