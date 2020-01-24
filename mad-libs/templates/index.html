@@ -5,7 +5,7 @@
 {% block header %}Choose your story!{% endblock %}
 
 {% block body %}
-<form action="/inputs">
+<form action="#" method="POST">
   <select name="story">
     {% for story in story_list %}
       <option value="{{story_list.index(story)}}">{{story.template}}</option>

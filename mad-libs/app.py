@@ -11,30 +11,35 @@ debug = DebugToolbarExtension(app)
 
 @app.route('/')
 def index():
+    """Form to choose your story"""
 
     return render_template('index.html', story_list=stories_list)
-    
 
-@app.route('/inputs')
+
+@app.route('/', methods=["POST"])
 def input_words():
-    """Form for creating madlibs"""
-    story_choice = request.form
-    import pdb; pdb.set_trace()
-    for story in stories_list:
-        if story.template == story_choice:
-            my_story = story
+    """Once story is chosen, creates form for creating madlibs"""
 
-    return render_template('form.html', story=my_story)
+    story_choice = request.form.get('story')
+    prompts = stories_list[int(story_choice)].prompts
+    my_story = stories_list[int(story_choice)].template
+
+    return render_template('form.html', story=my_story, prompts=prompts)
 
 
 @app.route('/story')
 def shows_story():
     """Shows the madlib"""
 
-    user_inputs = request.args
-    story_text = story.generate(user_inputs)
+    user_inputs = request.form.get('story')
+    story_choice = request.form.get('story')
+
+    breakpoint()
+    
+    story_text = stories_list[int(story_choice)].generate(user_inputs)
 
     return render_template('story.html', text=story_text)
+
 
 # import pdb 
 # pdb.set_trace() - (python debugger)
